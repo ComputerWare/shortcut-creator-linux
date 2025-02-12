@@ -20,20 +20,20 @@ fun main() {
     clearScreen()
 
     print("Enter desktop shortcut file name: ") // shortcut name
-    val name_file = readlnOrNull()
+    val namefile = readlnOrNull()
     Thread.sleep(2000)
-    print("$name_file accepted..")
+    print("$namefile accepted..")
     clearScreen()
 
     print("Enter icon path: ") // shortcut icon
-    val icon_path = readlnOrNull()
+    val iconpath = readlnOrNull()
     makeDelay()
-    println("$icon_path accepted...")
+    println("$iconpath accepted...")
     makeDelay()
 
     print("Enter generic name: ") // shortcut generic name
-    val generic_name = readlnOrNull()
-    println("$generic_name...")
+    val genericname = readlnOrNull()
+    println("$genericname...")
     makeDelay()
 
     print("Command to run on shortcut launch: ") // Command to run on launch
@@ -43,11 +43,11 @@ fun main() {
     makeDelay()
 
     print("Open terminal on launch (true or false): ") // Command to run on launch
-    val terminal_boolean = readlnOrNull()
+    val terminalboolean = readlnOrNull()
     makeDelay()
-    print("$terminal_boolean...")
+    print("$terminalboolean...")
     makeDelay()
-    println("$name, $icon_path, $generic_name, $cmd") // Final check
+    println("$name, $iconpath, $genericname, $cmd") // Final check
     Thread.sleep(100)
 
     fun copyFile(sourcePath: String, destinationPath: String) {
@@ -77,18 +77,18 @@ fun main() {
 
     fun writeShortCutFile() {
         val homeDirectory = System.getProperty("user.home")
-        val desktopFile = File("$name_file.desktop")
+        val desktopFile = File("$namefile.desktop")
         var shortcutFinal = """
         |[Desktop Entry]
         |Type=Application
         |Name=$name
-        |GenericName=$generic_name
-        |Icon=$icon_path
+        |GenericName=$genericname
+        |Icon=$iconpath
         |Exec=$cmd
-        |Terminal=$terminal_boolean
+        |Terminal=$terminalboolean
         """.trimMargin()
         desktopFile.writeText(shortcutFinal)
-        copyFile("$name_file.desktop", "$homeDirectory/Desktop/$name_file.desktop")
+        copyFile("$namefile.desktop", "$homeDirectory/Desktop/$namefile.desktop")
 
     }
 
