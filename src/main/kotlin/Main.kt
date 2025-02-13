@@ -13,6 +13,12 @@ fun makeDelay() {
     Thread.sleep(500)
 }
 fun main() {
+    print("Enter desktop shortcut title name: ") // shortcut name
+    val name = readlnOrNull()
+    Thread.sleep(2000)
+    print("$name accepted..")
+    clearScreen()
+    
     print("Enter desktop shortcut file name: ") // shortcut name
     val namefile = readlnOrNull()
     Thread.sleep(2000)
